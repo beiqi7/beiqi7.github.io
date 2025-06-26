@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serernite's personal homepage - Normal Person & Tech Enthusiast">
+    <meta name="keywords" content="Serernite, developer, tech enthusiast, blog, notes">
+    <meta name="author" content="Serernite">
+    <title>Serernite - Personal Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="bg.jpg" as="image">
+    <link rel="preload" href="pf.jpg" as="image">
+    <!-- Font Awesome for better icon support in China -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Fallback for China users -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="not all" onload="this.media='all'">
+    <!-- Live2D Widget Integration -->
+    <script src="https://live2d-widget-mygo.vercel.app/autoload.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="pf.jpg" alt="Serernite's profile picture" loading="eager" width="150" height="150">
+                </div>
+                <h1 class="name">Serernite</h1>
+                <p class="title">Normal Person & Tech Enthusiast</p>
+            </div>
+        </header>
+
+        <!-- Navigation Buttons -->
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <a href="https://blog.shiina.fun" class="nav-btn blog-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Serernite's blog">
+                <i class="fas fa-blog icon" aria-hidden="true"></i>
+                <span>Blog</span>
+            </a>
+            <a href="https://i.moe.uy" class="nav-btn notes-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Serernite's notes">
+                <i class="fas fa-sticky-note icon" aria-hidden="true"></i>
+                <span>Notes</span>
+            </a>
+            <a href="https://nz.loli.ie" class="nav-btn probe-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit system probe">
+                <i class="fas fa-chart-line icon" aria-hidden="true"></i>
+                <span>Probe</span>
+            </a>
+            <a href="mailto:i@loli.ie" class="nav-btn email-btn" aria-label="Send email to Serernite">
+                <i class="fas fa-envelope icon" aria-hidden="true"></i>
+                <span>Email</span>
+            </a>
+        </nav>
+
+        <!-- Personal Bio Section -->
+        <section class="bio-section" aria-labelledby="about-heading">
+            <div class="bio-container">
+                <h2 id="about-heading">About Me</h2>
+                <p class="bio-text">
+                    Welcome to my personal space! I was once a meteorology student, now working as an office worker. 
+                    I have a passion for computers and networking - all self-taught knowledge that I've accumulated over the years. 
+                    I'm a big fan of RCD Espanyol, Chengdu Rongcheng, and CFA.
+                </p>
+                <p class="bio-text">
+                    When it comes to music, I love listening to Radiohead, The Strokes, Groove Armada, and Fred again. 
+                    Feel free to explore my blog for technical insights, check out my notes for learning resources, 
+                    monitor system status through my probe, or reach out via email for any collaborations or questions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <p>&copy; 2024 Serernite. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Particles Effect -->
+    <div class="particles" aria-hidden="true"></div>
+
+    <!-- Optimized JavaScript for better performance -->
+    <script>
+        // Optimize animations and reduce repaints
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add will-change property for better performance
+            const animatedElements = document.querySelectorAll('.nav-btn, .profile-image img');
+            animatedElements.forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.willChange = 'transform');
+                el.addEventListener('mouseleave', () => el.style.willChange = 'auto');
+            });
+
+            // Fallback for Font Awesome loading issues in China
+            setTimeout(function() {
+                const testIcon = document.querySelector('.fas');
+                if (testIcon && window.getComputedStyle(testIcon, ':before').content === 'none') {
+                    // Font Awesome failed to load, add fallback emoji
+                    const icons = document.querySelectorAll('.icon');
+                    const fallbacks = ['📝', '📚', '📊', '📧'];
+                    icons.forEach((icon, index) => {
+                        icon.textContent = fallbacks[index] || '🔗';
+                        icon.className = 'icon emoji-fallback';
+                    });
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
